@@ -18,22 +18,22 @@ function ThisGameContent() {
     <div>
       <header className="text-4xl font-bold text-center">
         <div>Tic Tac Toe</div>
-        <div>
+        <div className="text-2xl font-normal h-8">
           {game.gameState !== "In Progress" && <h2>{game.gameState}</h2>}
         </div>
       </header>
-      <div className="grid grid-rows-3 divide-y-2">
-        <div className="grid grid-cols-3 divide-x-2">
+      <div className="grid grid-rows-3 divide-y-8">
+        <div className="flex flex-row divide-x-8">
           <TicTacToeCell row={0} col={0} />
           <TicTacToeCell row={0} col={1} />
           <TicTacToeCell row={0} col={2} />
         </div>
-        <div className="grid grid-cols-3 divide-x-2">
+        <div className="flex flex-row divide-x-8">
           <TicTacToeCell row={1} col={0} />
           <TicTacToeCell row={1} col={1} />
           <TicTacToeCell row={1} col={2} />
         </div>
-        <div className="grid grid-cols-3 divide-x-2">
+        <div className="flex flex-row divide-x-8">
           <TicTacToeCell row={2} col={0} />
           <TicTacToeCell row={2} col={1} />
           <TicTacToeCell row={2} col={2} />
