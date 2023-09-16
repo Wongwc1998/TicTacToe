@@ -88,10 +88,11 @@ const TurnLogic = (
   col: number,
   newCell: cellStateType
 ): gameType => {
-  game.cells[row][col] = newCell;
+  const updatedCells = [...game.cells]; // Clone the cells array
+  updatedCells[row][col] = newCell;
   const winner = checkWin(game.cells);
   return {
-    cells: game.cells,
+    cells: updatedCells,
     gameState: winner,
     turn: winner === "In Progress" ? (newCell === "P1" ? "P2" : "P1") : "P1",
   };
