@@ -1,6 +1,6 @@
 import { TurnLogic } from "./TicTacToeLogic";
 import React from "react";
-import { thisGameContext as ThisGameContext } from "./TicTacToeContext";
+import { ThisGameContext } from "./TicTacToeContext";
 
 type TicTacToeCellProps = {
   row: number;

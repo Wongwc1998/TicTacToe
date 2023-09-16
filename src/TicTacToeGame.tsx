@@ -1,5 +1,7 @@
-import GameContextProvider from "./TicTacToeContext";
+import GameContextProvider, { ThisGameContext } from "./TicTacToeContext";
 import TicTacToeCell from "./TicTacToeCell";
+import { ResetGame } from "./TicTacToeLogic";
+import React from "react";
 
 export default function TicTacToeGame() {
   return (
