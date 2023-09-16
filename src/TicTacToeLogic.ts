@@ -2,9 +2,7 @@ import {
   cellStateType,
   gameStateType,
   gameType,
-  turnType,
 } from "@/TicTacToeTypes";
-import { MouseEventHandler } from "react";
 
 const isLineWin = (
   cell1: cellStateType,
@@ -68,18 +66,6 @@ const setCell = (
 ): void => {
   game.cells[row][col] = value;
   console.log(game);
-};
-
-const setCellHandler = (
-  cells: cellStateType[][],
-  row: number,
-  col: number,
-  value: cellStateType
-): MouseEventHandler<HTMLButtonElement> => {
-  return (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    cells[row][col] = value;
-    console.log(cells);
-  };
 };
 
 const TurnLogic = (
