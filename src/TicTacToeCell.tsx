@@ -10,24 +10,23 @@ type TicTacToeCellProps = {
 export default function TicTacToeCell({ row, col }: TicTacToeCellProps) {
   const { game, setGame } = React.useContext(ThisGameContext);
   const OnClickHandler = ({ row, col }: TicTacToeCellProps) => {
-    const newGame = TurnLogic(game, row, col, game.turn);
-    setGame(newGame);
-    console.log(newGame);
+    if (game.gameState === "In Progress") {
+      const newGame = TurnLogic(game, row, col, game.turn);
+      setGame(newGame);
+      console.log(newGame);
+    }
   };
 
-  const disableButton = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.currentTarget.disabled = true;
-  };
   return (
     <button
-      onClick={(e) => {
+      onClick={() => {
         OnClickHandler({ row, col });
-        disableButton(e);
       }}
+      disabled={
+        game.cells[row][col] !== "Empty" || game.gameState !== "In Progress"
+      } // Disable if the cell is not empty or if the game is over
     >
-      Click
+      {game.cells[row][col]}
     </button>
   );
 }
