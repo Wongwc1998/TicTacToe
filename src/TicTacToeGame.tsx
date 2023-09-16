@@ -19,7 +19,7 @@ function ThisGameContent() {
       <header className="text-4xl font-bold text-center">
         <div>Tic Tac Toe</div>
         <div className="text-2xl font-bold h-8 m-4">
-          {game.gameState !== "In Progress" && <h2>{game.gameState}</h2>}
+          {game.gameState === "In Progress" ? game.turn + "'s Turn" : game.gameState}
         </div>
       </header>
       <div className="flex justify-center">
