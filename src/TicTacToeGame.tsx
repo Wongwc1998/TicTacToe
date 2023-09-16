@@ -15,7 +15,7 @@ function ThisGameContent() {
   const { game, setGame } = React.useContext(ThisGameContext);
 
   return (
-    <div className="bg-sky-100 h-screen">
+    <div className="bg-sky-100 h-screen pt-10">
       <header className="text-4xl font-bold text-center">
         <div>Tic Tac Toe</div>
         <div className="text-2xl font-bold h-8 m-4">
@@ -43,7 +43,7 @@ function ThisGameContent() {
       </div>
       <footer>
         {game.gameState !== "In Progress" && (
-          <div className="m-4">
+          <div className="m-8">
             <button
               className="bg-sky-500 rounded-lg text-white font-bold py-2 px-4"
               onClick={() => setGame(ResetGame())}
