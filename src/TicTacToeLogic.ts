@@ -1,4 +1,9 @@
-import { cellStateType, gameStateType, gameType } from "@/TicTacToeTypes";
+import {
+  cellStateType,
+  gameStateType,
+  gameType,
+  turnType,
+} from "@/TicTacToeTypes";
 import { MouseEventHandler } from "react";
 
 const isLineWin = (
@@ -81,15 +86,15 @@ const TurnLogic = (
   game: gameType,
   row: number,
   col: number,
-  playerTurn: cellStateType
-): [cellStateType, gameStateType] => {
-  setCell(game, row, col, playerTurn);
+  newCell: cellStateType
+): gameType => {
+  game.cells[row][col] = newCell;
   const winner = checkWin(game.cells);
-  if (winner === "In Progress") {
-    return [playerTurn === "P1" ? "P2" : "P1", winner];
-  } else {
-    return [playerTurn, winner];
-  }
+  return {
+    cells: game.cells,
+    gameState: winner,
+    turn: winner === "In Progress" ? (newCell === "P1" ? "P2" : "P1") : "P1",
+  };
 };
 
 const ResetGame = (cells: cellStateType[][]): void => {

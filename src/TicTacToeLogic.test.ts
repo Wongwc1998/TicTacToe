@@ -79,13 +79,13 @@ describe("TurnLogic", () => {
   });
 
   it("should switch turns between P1 and P2 when game is in progress", () => {
-    let [nextPlayer, gameState] = TurnLogic(thisGame, 0, 0, "P1");
-    expect(nextPlayer).toBe("P2");
-    expect(gameState).toBe("In Progress");
+    let game = TurnLogic(thisGame, 0, 0, "P1");
+    expect(game.turn).toBe("P2");
+    expect(game.gameState).toBe("In Progress");
 
-    [nextPlayer, gameState] = TurnLogic(thisGame, 1, 0, "P2");
-    expect(nextPlayer).toBe("P1");
-    expect(gameState).toBe("In Progress");
+    game = TurnLogic(thisGame, 1, 0, "P2");
+    expect(game.turn).toBe("P1");
+    expect(game.gameState).toBe("In Progress");
   });
 
   it("should declare P1 as the winner if P1 has three in a row", () => {
@@ -93,9 +93,9 @@ describe("TurnLogic", () => {
     TurnLogic(thisGame, 1, 0, "P2");
     TurnLogic(thisGame, 0, 1, "P1");
     TurnLogic(thisGame, 1, 1, "P2");
-    const [nextPlayer, gameState] = TurnLogic(thisGame, 0, 2, "P1");
+    const game = TurnLogic(thisGame, 0, 2, "P1");
 
-    expect(gameState).toBe("P1 Win");
+    expect(game.gameState).toBe("P1 Win");
   });
 
   it("should declare game as draw if all cells are filled and no one has won", () => {
@@ -107,10 +107,10 @@ describe("TurnLogic", () => {
     TurnLogic(thisGame, 1, 2, "P2");
     TurnLogic(thisGame, 1, 0, "P1");
     TurnLogic(thisGame, 2, 2, "P2");
-    const [nextPlayer, gameState] = TurnLogic(thisGame, 2, 1, "P1");
+    const game = TurnLogic(thisGame, 2, 1, "P1");
 
-    expect(gameState).toBe("Draw");
-    expect(nextPlayer).toBe("P1");
+    expect(game.gameState).toBe("Draw");
+    expect(game.turn).toBe("P1");
   });
 
   // ... add more tests as necessary
