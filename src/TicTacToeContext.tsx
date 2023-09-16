@@ -4,11 +4,11 @@ import { GameContextType, gameType } from "./TicTacToeTypes";
 const defaultGame = {
   game: {
     cells: [
-      ["Empty", "Empty", "Empty"],
-      ["Empty", "Empty", "Empty"],
-      ["Empty", "Empty", "Empty"],
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""],
     ],
-    turn: "P1",
+    turn: "X",
     gameState: "In Progress",
   },
   setGame: (game: gameType) => {},
@@ -25,11 +25,11 @@ export default function GameContextProvider({
 }: GameContextProviderProps) {
   const [game, setGame] = React.useState<gameType>({
     cells: [
-      ["Empty", "Empty", "Empty"],
-      ["Empty", "Empty", "Empty"],
-      ["Empty", "Empty", "Empty"],
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""],
     ],
-    turn: "P1",
+    turn: "X",
     gameState: "In Progress",
   });
 

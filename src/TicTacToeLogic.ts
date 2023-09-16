@@ -11,7 +11,7 @@ const isLineWin = (
   cell2: cellStateType,
   cell3: cellStateType
 ): cellStateType | null => {
-  if (cell1 !== "Empty" && cell1 === cell2 && cell2 === cell3) {
+  if (cell1 !== "" && cell1 === cell2 && cell2 === cell3) {
     return cell1;
   }
   return null;
@@ -42,7 +42,7 @@ const checkDiagonals = (cells: cellStateType[][]): cellStateType | null => {
 
 const isDraw = (cells: cellStateType[][]): boolean => {
   for (let i = 0; i < 3; i++) {
-    if (cells[i].includes("Empty")) {
+    if (cells[i].includes("")) {
       return false;
     }
   }
@@ -53,8 +53,8 @@ const checkWin = (cells: cellStateType[][]): gameStateType => {
   const winner =
     checkRows(cells) ?? checkColumns(cells) ?? checkDiagonals(cells);
 
-  if (winner === "P1") return "P1 Win";
-  if (winner === "P2") return "P2 Win";
+  if (winner === "X") return "X Win";
+  if (winner === "O") return "O Win";
   if (isDraw(cells)) return "Draw";
 
   return "In Progress";
@@ -94,21 +94,21 @@ const TurnLogic = (
   return {
     cells: updatedCells,
     gameState: winner,
-    turn: winner === "In Progress" ? (newCell === "P1" ? "P2" : "P1") : "P1",
+    turn: winner === "In Progress" ? (newCell === "X" ? "O" : "X") : "X",
   };
 };
 
 const ResetGame = (): gameType => {
   const freshCells: cellStateType[][] = [
-    ["Empty", "Empty", "Empty"],
-    ["Empty", "Empty", "Empty"],
-    ["Empty", "Empty", "Empty"],
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
   ];
 
   return {
     cells: freshCells,
     gameState: "In Progress",
-    turn: "P1",
+    turn: "X",
   };
 };
 

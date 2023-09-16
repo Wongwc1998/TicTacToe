@@ -22,9 +22,8 @@ export default function TicTacToeCell({ row, col }: TicTacToeCellProps) {
       onClick={() => {
         OnClickHandler({ row, col });
       }}
-      disabled={
-        game.cells[row][col] !== "Empty" || game.gameState !== "In Progress"
-      } // Disable if the cell is not empty or if the game is over
+      disabled={game.cells[row][col] !== "" || game.gameState !== "In Progress"} // Disable if the cell is not empty or if the game is over
+      className="w-24 h-24 text-4xl font-bold text-center bg-sky-200"
     >
       {game.cells[row][col]}
     </button>
