@@ -97,12 +97,18 @@ const TurnLogic = (
   };
 };
 
-const ResetGame = (cells: cellStateType[][]): void => {
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; i < 3; i++) {
-      cells[i][j] = "Empty";
-    }
-  }
+const ResetGame = (): gameType => {
+  const freshCells: cellStateType[][] = [
+    ["Empty", "Empty", "Empty"],
+    ["Empty", "Empty", "Empty"],
+    ["Empty", "Empty", "Empty"],
+  ];
+
+  return {
+    cells: freshCells,
+    gameState: "In Progress",
+    turn: "P1",
+  };
 };
 
 export { checkWin, TurnLogic, ResetGame, setCell };

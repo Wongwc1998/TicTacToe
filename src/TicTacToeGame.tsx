@@ -24,6 +24,11 @@ export default function TicTacToeGame() {
             <TicTacToeCell row={2} col={2} />
           </div>
         </div>
+        {game.gameState !== "In Progress" && (
+          <div>
+            <button onClick={() => setGame(ResetGame(game))}>Reset Game</button>
+          </div>
+        )}
       </GameContextProvider>
     </div>
   );
