@@ -2,7 +2,7 @@ import { checkWin, setCell, TurnLogic } from "./TicTacToeLogic";
 import { describe, expect, it, beforeEach } from "vitest";
 import { gameType } from "@/TicTacToeTypes";
 
-let thisGame: gameType = {
+const thisGame: gameType = {
   cells: [
     ["", "", ""],
     ["", "", ""],
