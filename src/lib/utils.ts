@@ -32,7 +32,7 @@ export function caesarCipher(str: string, shift: number) {
 export function calculator(
   operator: "add" | "subtract" | "multiply" | "divide",
   operand1: number,
-  operand2: number
+  operand2: number,
 ) {
   switch (operator) {
     case "add":
@@ -53,6 +53,5 @@ export function analyzeArray(input: number[]) {
     min: Math.min(...input),
     max: Math.max(...input),
     length: input.length,
-  }
-
+  };
 }

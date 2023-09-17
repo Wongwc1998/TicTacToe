@@ -11,7 +11,9 @@ const defaultGame = {
     turn: "X",
     gameState: "In Progress",
   },
-  setGame: (game: gameType) => {console.log(game)},
+  setGame: (game: gameType) => {
+    console.log(game);
+  },
 } as GameContextType;
 //Context for game
 export const ThisGameContext = React.createContext(defaultGame);

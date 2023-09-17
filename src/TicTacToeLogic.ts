@@ -1,13 +1,9 @@
-import {
-  cellStateType,
-  gameStateType,
-  gameType,
-} from "@/TicTacToeTypes";
+import { cellStateType, gameStateType, gameType } from "@/TicTacToeTypes";
 
 const isLineWin = (
   cell1: cellStateType,
   cell2: cellStateType,
-  cell3: cellStateType
+  cell3: cellStateType,
 ): cellStateType | null => {
   if (cell1 !== "" && cell1 === cell2 && cell2 === cell3) {
     return cell1;
@@ -62,7 +58,7 @@ const setCell = (
   game: gameType,
   row: number,
   col: number,
-  value: cellStateType
+  value: cellStateType,
 ): void => {
   game.cells[row][col] = value;
   console.log(game);
@@ -72,7 +68,7 @@ const TurnLogic = (
   game: gameType,
   row: number,
   col: number,
-  newCell: cellStateType
+  newCell: cellStateType,
 ): gameType => {
   const updatedCells = [...game.cells]; // Clone the cells array
   updatedCells[row][col] = newCell;
